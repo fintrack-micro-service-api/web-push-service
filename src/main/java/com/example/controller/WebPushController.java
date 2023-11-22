@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.model.entities.UserSubscription;
 import com.example.model.entities.WebDataConfig;
+import com.example.model.entities.WebPushHistory;
 import com.example.model.request.MessageRequest;
 import com.example.model.request.PushNotificationRequest;
 import com.example.model.request.WebConfigRequest;
@@ -129,6 +130,18 @@ public class WebPushController {
             WebDataConfig webDataConfig = webService.getConfigById(id);
 
             ApiResponse<?> data = new ApiResponse<>("Get configuration successfully", HttpStatus.OK.value(), webDataConfig);
+            return ResponseEntity.ok(data);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to get configuration " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/allHistory")
+    public ResponseEntity<?> getWebPushHistory() {
+        try {
+            List<WebPushHistory> webPushHistories = webPushService.getAllWebPushHistory();
+
+            ApiResponse<?> data = new ApiResponse<>("Get all histories successfully", HttpStatus.OK.value(), webPushHistories);
             return ResponseEntity.ok(data);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to get configuration " + e.getMessage());

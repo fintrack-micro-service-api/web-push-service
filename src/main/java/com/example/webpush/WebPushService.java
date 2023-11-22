@@ -117,6 +117,10 @@ public class WebPushService {
         webPushHistoryRepository.save(webPushHistory);
     }
 
+    public List<WebPushHistory> getAllWebPushHistory() {
+        return webPushHistoryRepository.findAll();
+    }
+
     public record Message(String title, TransactionHistoryDto body) {
     }
 
