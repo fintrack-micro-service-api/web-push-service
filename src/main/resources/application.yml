@@ -18,7 +18,7 @@ spring:
     url: jdbc:postgresql://8.219.131.180:8765/fintrack
     username: root
     password: P@SSWORD666
-    driver-class-name: org.postgresql.Driver
+#    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -59,9 +59,9 @@ kafka:
     schedule: web-service-schedule
 
 
-
-springdoc:
-  api-docs:
-    path: /web-push-service/v3/api-docs #these urls will used to load the swagger ui of this service by the api gateway
-  swagger-ui:
-    path: /web-push-service/swagger-ui.html
+#
+#springdoc:
+#  api-docs:
+#    path: /web-push-service/v3/api-docs #these urls will used to load the swagger ui of this service by the api gateway
+#  swagger-ui:
+#    path: /web-push-service/swagger-ui.html

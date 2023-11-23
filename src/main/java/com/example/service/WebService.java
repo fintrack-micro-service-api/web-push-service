@@ -15,6 +15,6 @@ public interface WebService {
 
     WebDataConfig getConfigById(UUID id);
     WebDataConfig getConfig();
-   ApiResponse<BankAccount> getCustomerInfoByBankAccountNo(String accountNo);
+//   ApiResponse<BankAccount> getCustomerInfoByBankAccountNo(String accountNo);
 
 }
