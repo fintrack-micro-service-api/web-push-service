@@ -50,12 +50,12 @@ public class WebServiceImp implements WebService {
 
     }
 
-    public ApiResponse<BankAccount> getCustomerInfoByBankAccountNo(String accountNo){
-        return webClient.baseUrl("http://client-event-service/api/v1/bank/customerInfo/" + accountNo)
-                .build()
-                .get()
-                .retrieve().bodyToMono(ApiResponse.class).block();
-    }
+//    public ApiResponse<BankAccount> getCustomerInfoByBankAccountNo(String accountNo){
+//        return webClient.baseUrl("http://client-event-service/api/v1/bank/customerInfo/" + accountNo)
+//                .build()
+//                .get()
+//                .retrieve().bodyToMono(ApiResponse.class).block();
+//    }
 
 
 
