@@ -27,7 +27,7 @@ import java.util.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/v1/webpush")
+@RequestMapping("/fintrack-web-push-service/api/v1/webpush")
 public class WebPushController {
     private final WebPushService webPushService;
     private final WebService webService;
