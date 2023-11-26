@@ -30,7 +30,6 @@ public class KafkaConsumerConfig {
     private String deadLetterTopic;
     @Value("${kafka.group-id}")
     private String groupId;
-
     @Value("${kafka.auto-offset}")
     private String autoOffset;
 
