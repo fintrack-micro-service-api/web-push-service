@@ -3,12 +3,17 @@ package com.example.service.imp;
 import com.example.exception.NotFoundException;
 import com.example.model.entities.BankAccount;
 import com.example.model.entities.WebDataConfig;
+import com.example.model.entities.WebPushHistory;
 import com.example.model.request.WebConfigRequest;
 import com.example.model.respone.ApiResponse;
 import com.example.repository.WebConfigRepository;
+import com.example.repository.WebPushHistoryRepository;
 import com.example.repository.WebRepository;
 import com.example.service.WebService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -21,6 +26,7 @@ public class WebServiceImp implements WebService {
     private final WebConfigRepository webConfigRepository;
     private final WebRepository webRepository;
     private final WebClient.Builder webClient;
+    private final WebPushHistoryRepository webPushHistoryRepository;
 
     @Override
     public void addConfig(WebConfigRequest webConfigRequest) throws GeneralSecurityException {
