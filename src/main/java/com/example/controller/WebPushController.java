@@ -2,16 +2,19 @@ package com.example.controller;
 
 import com.example.model.entities.UserSubscription;
 import com.example.model.entities.WebDataConfig;
+import com.example.model.entities.WebPushHistory;
 import com.example.model.request.MessageRequest;
 import com.example.model.request.PushNotificationRequest;
 import com.example.model.request.WebConfigRequest;
 import com.example.model.respone.ApiResponse;
+import com.example.model.respone.ApiResponseOne;
 import com.example.service.WebService;
 import com.example.webpush.WebPushService;
 import lombok.AllArgsConstructor;
 import nl.martijndwars.webpush.Subscription;
 import nl.martijndwars.webpush.Utils;
 import org.jose4j.lang.JoseException;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -136,5 +139,16 @@ public class WebPushController {
     }
 
 
+    @GetMapping("/allHistory")
+    public ApiResponseOne<Object> getWebPushHistory(@RequestParam(name = "page", defaultValue = "0") int page,
+                                                    @RequestParam(name = "size", defaultValue = "5") int size) {
+        Page<WebPushHistory> webPushHistories = webPushService.getAllWebPushHistory(page, size);
+        return ApiResponseOne.builder()
+                .message("get Email Reciver Successfully")
+                .payload(webPushHistories.getContent())
+                .total(webPushHistories.getTotalElements())
+                .status(200)
+                .build();
+    }
 
 }

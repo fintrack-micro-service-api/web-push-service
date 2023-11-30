@@ -24,6 +24,9 @@ import org.jose4j.lang.JoseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -115,6 +118,11 @@ public class WebPushService {
     public void saveWebHistory(WebPushHistory webPushHistory) {
         webPushHistory.setStatus("Delivered");
         webPushHistoryRepository.save(webPushHistory);
+    }
+
+    public Page<WebPushHistory> getAllWebPushHistory(int page, int size) {
+        Pageable pageable = PageRequest.of (page, size);
+        return webPushHistoryRepository.findAll(pageable);
     }
 
     public record Message(String title, TransactionHistoryDto body) {
