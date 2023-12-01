@@ -55,7 +55,7 @@ kafka:
   group-id: notification-consumer
   auto-offset: earliest
   topics:
-    data: web-notification-alert
+    data: web-alert-service
     schedule: web-service-schedule
 
 
