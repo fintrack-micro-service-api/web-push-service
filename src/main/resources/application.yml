@@ -30,8 +30,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8443/auth/realms/Fintrack
-          jwk-set-uri: http://localhost:8443/auth/realms/Fintrack/protocol/openid-connect/certs
+          issuer-uri: https://keycloak-fintrack.sythorng.site/auth/realms/Fintrack
+          jwk-set-uri: https://keycloak-fintrack.sythorng.site/auth/realms/Fintrack/protocol/openid-connect/certs
 
 #hibernate:
 #  jdbc:
@@ -57,7 +57,12 @@ kafka:
   topics:
     data: web-alert-service
     schedule: web-service-schedule
-
+springdoc:
+  swagger-ui:
+    oauth:
+      clientId: fintrack-app
+      clientSecret: yc3N92U7MgQtyfZ4le3h5ZeF0HTfuqgn
+      realm: Fintrack
 
 #
 #springdoc:
